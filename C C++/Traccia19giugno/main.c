@@ -134,14 +134,13 @@ azienda *leggiFile(FILE *fp, azienda *lista)
 
 void scriviFile(FILE *fp, azienda *lista)
 {
-  int *buffer, dipendenti, dipartimenti, sedi;
-  azienda*ptr1, *ptr2;
-
+  int dipendenti, dipartimenti, sedi;
+  
   while (lista!=NULL) {
     dipendenti = lista->Dipendenti;
     dipartimenti = lista->Dipartimenti;
     sedi = lista->Sedi;
-    fprintf(fp,"%s %s %d %d %d ", lista->NomeAzienda, dipendenti, dipartimenti, sedi);
+    fprintf(fp,"%s %d %d %d ", lista->NomeAzienda, dipendenti, dipartimenti, sedi);
 
     fprintf(fp,"\n");
     lista = lista->next;

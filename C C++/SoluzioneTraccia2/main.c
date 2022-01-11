@@ -146,7 +146,7 @@ struct azienda *leggiFile(FILE *fp, struct azienda *lista)
 void scriviFile(FILE *fp, struct azienda *lista)
 {
   int *buffer, n, i, j, count;
-  struct azienda*ptr1, *ptr2;
+  //struct azienda*ptr1, *ptr2;
 
   while (lista!=NULL) {
     n = lista->N;
@@ -156,16 +156,16 @@ void scriviFile(FILE *fp, struct azienda *lista)
     for (i=0; i<n; i++) {
       count = 0;
       if (!buffer[i]) {
-	buffer[i] = 1;
-	count++;
-	fprintf(fp,"%s ",lista->citta[i]);
-	for (j=i+1; j<n; j++) {
-	  if (strcmp(lista->citta[i],lista->citta[j])==0) {
-	    buffer[j] = 1;
-	    count++;
-	  }
-	}
-	fprintf(fp,"%d ",count);
+	      buffer[i] = 1;
+	      count++;
+	      fprintf(fp,"%s ",lista->citta[i]);
+	      for (j=i+1; j<n; j++) {
+	        if (strcmp(lista->citta[i],lista->citta[j])==0) {
+	          buffer[j] = 1;
+	          count++;
+	        }
+	      }
+	      fprintf(fp,"%d ",count);
       }
     }
     fprintf(fp,"\n");
