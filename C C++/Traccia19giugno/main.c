@@ -27,14 +27,14 @@ int main(void){
 
     fp = fopen("dati.txt", "r");
     if(fp==NULL) gestioneErrore();
-
     lista=leggiFile(fp,lista);
     fclose(fp);
+
     scriviLista(lista);
 
     printf("\n");
 
-    lista=rimuoviazienda(lista, 300);
+    lista=rimuoviazienda(lista,300);
     scriviLista(lista);
 
     fp = fopen("dati2.txt", "w");
@@ -49,6 +49,7 @@ int main(void){
 void gestioneErrore(){
 
     printf("Errore!\n");
+    exit(0);
 
 }
 
@@ -77,7 +78,7 @@ static void freeNodo(azienda *nodo){
 
 azienda *inserisciLista(azienda *nodo, azienda *lista){
 
-    if (lista->next==NULL) return nodo;
+    if (lista==NULL) return nodo;
     lista->next=inserisciLista(nodo, lista->next);
     return lista;
 
@@ -122,8 +123,8 @@ azienda *leggiFile(FILE *fp, azienda *lista)
   int dipendenti, dipartimenti, sedi;
   azienda *nodo;
 
-  while(fscanf(fp,"%s%d%d%d",nome, &dipendenti, &dipartimenti, &sedi)==4){
-    nodo = nuovoNodo(nome, dipendenti, dipartimenti, sedi);
+  while(fscanf(fp,"%s%d%d%d",nome,&dipendenti,&dipartimenti,&sedi)==4){
+    nodo = nuovoNodo(nome,dipendenti,dipartimenti,sedi);
     if (nodo==NULL) gestioneErrore();
     lista = inserisciLista(nodo, lista);
   }
@@ -133,7 +134,7 @@ azienda *leggiFile(FILE *fp, azienda *lista)
 
 void scriviFile(FILE *fp, azienda *lista)
 {
-  int *buffer, dipendenti, dipartimenti, sedi, i, j, count;
+  int *buffer, dipendenti, dipartimenti, sedi;
   azienda*ptr1, *ptr2;
 
   while (lista!=NULL) {

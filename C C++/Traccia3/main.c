@@ -136,7 +136,7 @@ persona *leggiFile(FILE *fp, persona *lista)
 
 void scriviFile(FILE *fp, persona *lista)
 {
-  int *buffer, eta, peso, altezza, i, j, count;
+  int *buffer, eta, peso, altezza;
   persona*ptr1, *ptr2;
 
   while (lista!=NULL) {
