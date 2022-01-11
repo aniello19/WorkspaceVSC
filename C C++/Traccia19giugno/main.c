@@ -14,11 +14,11 @@ typedef struct azienda{
 
 void gestioneErrore();
 azienda *nuovoNodo(char *nomeAzienda, int dipendenti, int dipartimenti, int sedi);
-void freeLista(azienda *lista);
-void scriviLista(azienda *lista);
 azienda *leggiFile(FILE *fp, azienda *lista);
-void scriviFile(FILE *fp, azienda *lista);
+void scriviLista(azienda *lista);
 azienda *rimuoviazienda(azienda *lista, int soglia);
+void scriviFile(FILE *fp, azienda *lista);
+void freeLista(azienda *lista);
 
 int main(void){
 
