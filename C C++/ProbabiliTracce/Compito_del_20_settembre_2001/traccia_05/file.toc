@@ -1,0 +1,1 @@
+start: xor r0 r0 mv r1 r2 loop: ldbr r3 r2 jmpz end inc r0 inc r2 jmp loop end: ret
