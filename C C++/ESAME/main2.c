@@ -24,6 +24,9 @@ nodo *modLista(nodo *);
 int **modMat(int **, dati *);
 void scritturaFile(int** , dati*);
 int **aggMat(int **, dati *, nodo *);
+void freeMat(int **, dati *);
+void freeLista(nodo *);
+void freeNodo(nodo *);
 
 int main(void){
 
@@ -40,6 +43,12 @@ int main(void){
     mat = aggMat(mat, dim, testa); //aggiorno la matrice
 
     scritturaFile(mat, dim); //creo e scrivo il file output
+
+    freeMat(mat, dim);
+
+    free(dim);
+
+    freeLista(testa);
 
     return 0;
 }
@@ -230,5 +239,29 @@ int **aggMat(int **mat, dati *dim, nodo *testa){
     printf("\nMatrice aggiornata\n");
     printM( mat, dim );
     return mat;
+
+}
+
+void freeMat(int **mat, dati *dim){
+
+    for(int i=0; i<dim->n; i++)
+        free(mat[i]);
+    free(mat);
+
+    printf("\nMatrice Deallocata\n");
+
+}
+
+void freeLista(nodo *lista){
+
+    if (lista != NULL) {
+        freeLista(lista->next);
+        freeNodo(lista);
+    }
+}
+
+void freeNodo(nodo *nodo){
+
+    free((void *) nodo);
 
 }

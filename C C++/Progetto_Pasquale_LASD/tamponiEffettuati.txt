@@ -1,0 +1,8 @@
+RMAPST00P10L945C 1234 mattino positivo 8
+RMAPQL00P10L845C 1234 mattino negativo 7
+QVKUTS54A10L980A 1234 sera negativo 6
+QWCMOY98F10L423S 1234 sera positivo 5
+RGFDCT29A10L235L 1234 pomeriggio positivo 4
+RGFDCT29A10L235L 1234 pomeriggio negativo 3
+ETYHFC90S10L876H 1234 mattino positivo 2
+QWCMOY98F10L423S 1234 mattino negativo 1
