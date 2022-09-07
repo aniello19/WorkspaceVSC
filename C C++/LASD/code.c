@@ -12,7 +12,7 @@ void new_queue(int Q[]);
 
 int main(void){
 
-    int Q[MAX+1], scelta, valore;
+    int Q[MAX+2], scelta, valore;
 
     do{
         printf("\n0-Crea, 1-Stampa, 2-Deq, 3-Enq,, 4-uscita: ");
